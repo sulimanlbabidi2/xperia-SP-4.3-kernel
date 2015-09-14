@@ -177,6 +177,16 @@ int msm_fb_cursor(struct fb_info *info, struct fb_cursor *cursor)
 	return mfd->cursor_update(info, cursor);
 }
 
+static void __ref pump_up_the_jam(void)
+{
+	int cpu = 0;
+	for_each_possible_cpu(cpu) {
+		cpu_up(cpu);
+		acpuclk_set_rate(cpu, 1728000, SETRATE_CPUFREQ);
+	}
+}
+
+
 static int msm_fb_resource_initialized;
 
 #ifndef CONFIG_FB_BACKLIGHT
@@ -1164,13 +1174,9 @@ static int msm_fb_blank(int blank_mode, struct fb_info *info)
 	}
 	msm_fb_pan_idle(mfd);
 	if (mfd->op_enable == 0) {
-		if (blank_mode == FB_BLANK_UNBLANK) {
+		if (blank_mode == FB_BLANK_UNBLANK) {			
 			mfd->suspend.panel_power_on = TRUE;
-			/* if unblank is called when system is in suspend,
-			wait for the system to resume */
-			while (mfd->suspend.op_suspend) {
-				pr_debug("waiting for system to resume\n");
-				msleep(20);
+			pump_up_the_jam();
 			}
 		}
 		else
