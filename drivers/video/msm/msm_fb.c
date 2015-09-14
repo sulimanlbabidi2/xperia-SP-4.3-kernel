@@ -33,6 +33,10 @@
 #include <linux/uaccess.h>
 #include <mach/iommu_domains.h>
 
+
+#include <linux/cpu.h>
+#include "../../../arch/arm/mach-msm/acpuclock.h"
+
 #include <linux/workqueue.h>
 #include <linux/string.h>
 #include <linux/version.h>
@@ -1179,11 +1183,9 @@ static int msm_fb_blank(int blank_mode, struct fb_info *info)
 			pump_up_the_jam();
 			}
 		}
-		else
-			mfd->suspend.panel_power_on = FALSE;
-	}
 	return msm_fb_blank_sub(blank_mode, info, mfd->op_enable);
-}
+	}
+
 
 static int msm_fb_set_lut(struct fb_cmap *cmap, struct fb_info *info)
 {
