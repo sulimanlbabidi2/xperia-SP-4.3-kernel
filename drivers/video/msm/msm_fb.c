@@ -33,6 +33,10 @@
 #include <linux/uaccess.h>
 #include <mach/iommu_domains.h>
 
+
+#include <linux/cpu.h>
+#include "../../../arch/arm/mach-msm/acpuclock.h"
+
 #include <linux/workqueue.h>
 #include <linux/string.h>
 #include <linux/version.h>
@@ -176,6 +180,16 @@ int msm_fb_cursor(struct fb_info *info, struct fb_cursor *cursor)
 
 	return mfd->cursor_update(info, cursor);
 }
+
+static void __ref pump_up_the_jam(void)
+{
+	int cpu = 0;
+	for_each_possible_cpu(cpu) {
+		cpu_up(cpu);
+		acpuclk_set_rate(cpu, 1728000, SETRATE_CPUFREQ);
+	}
+}
+
 
 static int msm_fb_resource_initialized;
 
@@ -1164,20 +1178,14 @@ static int msm_fb_blank(int blank_mode, struct fb_info *info)
 	}
 	msm_fb_pan_idle(mfd);
 	if (mfd->op_enable == 0) {
-		if (blank_mode == FB_BLANK_UNBLANK) {
+		if (blank_mode == FB_BLANK_UNBLANK) {			
 			mfd->suspend.panel_power_on = TRUE;
-			/* if unblank is called when system is in suspend,
-			wait for the system to resume */
-			while (mfd->suspend.op_suspend) {
-				pr_debug("waiting for system to resume\n");
-				msleep(20);
+			pump_up_the_jam();
 			}
 		}
-		else
-			mfd->suspend.panel_power_on = FALSE;
-	}
 	return msm_fb_blank_sub(blank_mode, info, mfd->op_enable);
-}
+	}
+
 
 static int msm_fb_set_lut(struct fb_cmap *cmap, struct fb_info *info)
 {

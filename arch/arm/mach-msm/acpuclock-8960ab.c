@@ -117,6 +117,8 @@ static struct l2_level l2_freq_tbl[] __initdata = {
 #endif
 
 static struct acpu_level freq_tbl_PVS0[] __initdata = {
+	{ 1, {   281000, PLL_8, 0, 0x00 }, L2(0),   950000 + VOLTAGE_TUNE, AVS(0x70001F) },
+	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   950000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   950000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   486000, HFPLL, 2, 0x24 }, L2(4),   950000 + VOLTAGE_TUNE, AVS(0x0) },
 	{ 1, {   594000, HFPLL, 1, 0x16 }, L2(4),   975000 + VOLTAGE_TUNE, AVS(0x0) },
@@ -142,6 +144,7 @@ static struct acpu_level freq_tbl_PVS0[] __initdata = {
 };
 
 static struct acpu_level freq_tbl_PVS1[] __initdata = {
+	{ 1, {   281000, PLL_8, 0, 0x00 }, L2(0),   925000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   925000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   486000, HFPLL, 2, 0x24 }, L2(4),   925000 + VOLTAGE_TUNE, AVS(0x0) },
 	{ 1, {   594000, HFPLL, 1, 0x16 }, L2(4),   950000 + VOLTAGE_TUNE, AVS(0x0) },
@@ -167,6 +170,7 @@ static struct acpu_level freq_tbl_PVS1[] __initdata = {
 };
 
 static struct acpu_level freq_tbl_PVS2[] __initdata = {
+	{ 1, {   281000, PLL_8, 0, 0x00 }, L2(0),   900000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   900000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   486000, HFPLL, 2, 0x24 }, L2(4),   900000 + VOLTAGE_TUNE, AVS(0x0) },
 	{ 1, {   594000, HFPLL, 1, 0x16 }, L2(4),   925000 + VOLTAGE_TUNE, AVS(0x0) },
@@ -192,6 +196,7 @@ static struct acpu_level freq_tbl_PVS2[] __initdata = {
 };
 
 static struct acpu_level freq_tbl_PVS3[] __initdata = {
+	{ 1, {   281000, PLL_8, 0, 0x00 }, L2(0),   900000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   900000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   486000, HFPLL, 2, 0x24 }, L2(4),   900000 + VOLTAGE_TUNE, AVS(0x0) },
 	{ 1, {   594000, HFPLL, 1, 0x16 }, L2(4),   900000 + VOLTAGE_TUNE, AVS(0x0) },
@@ -216,6 +221,7 @@ static struct acpu_level freq_tbl_PVS3[] __initdata = {
 };
 
 static struct acpu_level freq_tbl_PVS4[] __initdata = {
+	{ 1, {   281000, PLL_8, 0, 0x00 }, L2(0),   875000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   875000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   486000, HFPLL, 2, 0x24 }, L2(4),   875000 + VOLTAGE_TUNE, AVS(0x0) },
 	{ 1, {   594000, HFPLL, 1, 0x16 }, L2(4),   875000 + VOLTAGE_TUNE, AVS(0x0) },
@@ -241,6 +247,7 @@ static struct acpu_level freq_tbl_PVS4[] __initdata = {
 };
 
 static struct acpu_level freq_tbl_PVS5[] __initdata = {
+	{ 1, {   281000, PLL_8, 0, 0x00 }, L2(0),   875000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   875000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   486000, HFPLL, 2, 0x24 }, L2(4),   875000 + VOLTAGE_TUNE, AVS(0x0) },
 	{ 1, {   594000, HFPLL, 1, 0x16 }, L2(4),   875000 + VOLTAGE_TUNE, AVS(0x0) },
@@ -266,6 +273,7 @@ static struct acpu_level freq_tbl_PVS5[] __initdata = {
 };
 
 static struct acpu_level freq_tbl_PVS6[] __initdata = {
+	{ 1, {   281000, PLL_8, 0, 0x00 }, L2(0),   850000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   850000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   486000, HFPLL, 2, 0x24 }, L2(4),   850000 + VOLTAGE_TUNE, AVS(0x0) },
 	{ 1, {   594000, HFPLL, 1, 0x16 }, L2(4),   850000 + VOLTAGE_TUNE, AVS(0x0) },
