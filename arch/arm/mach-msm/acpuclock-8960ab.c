@@ -119,7 +119,6 @@ static struct l2_level l2_freq_tbl[] __initdata = {
 static struct acpu_level freq_tbl_PVS0[] __initdata = {
 	{ 1, {   281000, PLL_8, 0, 0x00 }, L2(0),   950000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   950000 + VOLTAGE_TUNE, AVS(0x70001F) },
-	{ 1, {   384000, PLL_8, 0, 0x00 }, L2(0),   950000 + VOLTAGE_TUNE, AVS(0x70001F) },
 	{ 1, {   486000, HFPLL, 2, 0x24 }, L2(4),   950000 + VOLTAGE_TUNE, AVS(0x0) },
 	{ 1, {   594000, HFPLL, 1, 0x16 }, L2(4),   975000 + VOLTAGE_TUNE, AVS(0x0) },
 	{ 1, {   702000, HFPLL, 1, 0x1A }, L2(4),  1000000 + VOLTAGE_TUNE, AVS(0x0) },
